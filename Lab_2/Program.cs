@@ -32,6 +32,10 @@ namespace Lab_2
             }
             return counter;
         }
+        public static string[] FindStringsContainingDigits(this string[] A)
+        {
+            return A.Where(str => str.Any(char.IsDigit)).ToArray();
+        }
     }
     public static class ArrayExtensions
     {
@@ -69,9 +73,21 @@ namespace Lab_2
             //Console.InputEncoding = Encoding.GetEncoding(1251);
             //Console.OutputEncoding = Encoding.GetEncoding(1251);
 
-            Car car = new Car(123, "жовтий", "audi", 5); 
+            Car[]car = new Car[5];
+            car[0] = new Car(120, "Зелений", "Audi", 5);
+            car[1] = new Car(157, "Червоний","Toyota",3);
+            car[2] = new Car(250,"Зелений","Skoda",5);
+            car[3] = new Car(210, "Чорний", "Renault", 7);
+            car[4] = new Car(300, "Бiлий", "Zeekr", 2);
 
-            String[] A= { "Falluot 3", "Daxter 2", "System Shok 2", "Morrowind", "Pes 2013" };
+            Product[] products = new Product[5];
+            products[0] = new Product("Портвейн 777","алкоголь",100);
+            products[1] = new Product("Сухарики три корочки", "снек", 10);
+            products[2] = new Product("Байкал", "напiток", 55);
+            products[3] = new Product("Чамбо", "напiток", 44);
+            products[4] = new Product("Мивина", "страва", 66);
+
+            String[] A= { "Falluot", "Daxter 2", "System Shok 2", "Morrowind", "Pes 2013" };
 
             int[] B = { 2, -7, -10, 2, 7, 2, 3 };
 
@@ -107,6 +123,54 @@ namespace Lab_2
             foreach (var i in B.DelSame())
             {
                 Console.WriteLine(i);
+            }
+
+            string[] stringsWithDigits = A.FindStringsContainingDigits();
+            Console.WriteLine("\nСтроки, содержащие цифры:");
+            foreach (var str in stringsWithDigits)
+            {
+                Console.WriteLine(str);
+            }
+            Console.WriteLine("\n\n");
+
+            var res = from n in B where n > 0 select n;
+            foreach (int positive in res)
+            {
+                Console.WriteLine(positive);
+            }
+
+            Console.WriteLine("\n\n");
+            string[] redColors = (from n in C where n.Contains("Red") select n).ToArray();
+            foreach(var color in redColors)
+            {
+                Console.WriteLine(color);
+            }
+            Console.WriteLine("\n\n");
+
+            var resCar = from n in car where n.TopSpeed > 200 select n;
+
+            foreach (var res2 in resCar)
+            {
+                Console.WriteLine(res2.ToString());
+                Console.WriteLine();
+            }
+            Console.WriteLine("\n\n");
+            var resProd = from n in products where n.Amount > 50 select n;
+
+            foreach (var res3 in resProd)
+            {
+                Console.WriteLine(res3.ToString());
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("\n\n");
+
+            var uniqueCars = myCars.Union(yourCars);
+
+            Console.WriteLine("Уникальные машины:");
+            foreach (var car321 in uniqueCars)
+            {
+                Console.WriteLine(car321);
             }
         }
     }

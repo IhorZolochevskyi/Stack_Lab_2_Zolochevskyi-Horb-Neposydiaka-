@@ -1,4 +1,6 @@
-﻿namespace ClassLib
+﻿using System.Drawing;
+
+namespace ClassLib
 {
      public class Product
         {
@@ -22,11 +24,15 @@
             set { amount = value; }
         }
 
-        public Product()
+        public Product(string Name, string Desription, int Amount)
         {
             name = Name;
             description = Description;
             amount = Amount;
         }
-     }
+        public override string ToString()
+        {
+            return $"Назва: {Name}\n Опис: {Description}\n Кiлькiсть: {Amount}";
+        }
+    }
 }
