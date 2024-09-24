@@ -23,9 +23,7 @@ namespace ClassLib
             get { return amount; }
             set { amount = value; }
         }
-
-        public Product(string Name, string Desription, int Amount)
-        {
+        public Product(string Name, string Description, int Amount) { 
             name = Name;
             description = Description;
             amount = Amount;

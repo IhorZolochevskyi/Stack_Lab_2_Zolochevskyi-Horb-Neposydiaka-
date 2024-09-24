@@ -51,17 +51,13 @@ namespace Lab_2
         }
         public static T[] DelSame<T>(this T[] A)
         {
-            // Используем HashSet для хранения уникальных значений
             HashSet<T> uniqueItems = new HashSet<T>();
 
-            // Добавляем элементы в HashSet (дубликаты автоматически игнорируются)
             for (int i = 0; i < A.Length; i++)
             {
                 T item = A[i];
                 uniqueItems.Add(item);
             }
-
-            // Преобразуем HashSet обратно в массив
             return uniqueItems.ToArray();
         }
     }
@@ -172,6 +168,28 @@ namespace Lab_2
             {
                 Console.WriteLine(car321);
             }
+
+            var dictionary = new ExtendedDictionary<int, string, double>();
+
+            dictionary.Add(1, "First", 1.1);
+            dictionary.Add(2, "Second", 2.2);
+            dictionary.Add(3, "Third", 3.3);
+
+            dictionary.Remove(2);
+
+            Console.WriteLine(dictionary.ContainsKey(2));
+
+            Console.WriteLine(dictionary.ContainsValue("First", 1.1)); 
+
+            var element = dictionary[1];
+            Console.WriteLine(element); 
+
+            foreach (var elem in dictionary)
+            {
+                Console.WriteLine(elem);
+            }
+
+            Console.WriteLine($"Count: {dictionary.Count}");
         }
     }
 }
