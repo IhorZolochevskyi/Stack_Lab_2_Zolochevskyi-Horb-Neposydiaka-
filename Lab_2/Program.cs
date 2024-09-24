@@ -35,7 +35,7 @@ namespace Lab_2
     }
     public static class ArrayExtensions
     {
-        public static int CountMatch<T>(this T[] A, T item) where T : struct
+        public static int CountMatch<T>(this T[] A, T item)
         {
             int counter = 0;
             for (int i = 0; i < A.Length; i++)
@@ -44,6 +44,21 @@ namespace Lab_2
                     counter++;
             }
             return counter;
+        }
+        public static T[] DelSame<T>(this T[] A)
+        {
+            // Используем HashSet для хранения уникальных значений
+            HashSet<T> uniqueItems = new HashSet<T>();
+
+            // Добавляем элементы в HashSet (дубликаты автоматически игнорируются)
+            for (int i = 0; i < A.Length; i++)
+            {
+                T item = A[i];
+                uniqueItems.Add(item);
+            }
+
+            // Преобразуем HashSet обратно в массив
+            return uniqueItems.ToArray();
         }
     }
     internal class Program
@@ -60,7 +75,7 @@ namespace Lab_2
 
             int[] B = { 2, -7, -10, 2, 7, 2, 3 };
 
-            String[] C = { "Light Green", "Red", "Green", "Yellow", "Purple", "Dark Green", 
+            String[] C = { "Light Green", "Red", "Green", "Yellow", "Red", "Dark Green", 
                 "Light Red", "Dark Red", "Dark Yellow", "Light Yellow" };
 
             List<string> myCars = new List<String> { "Yugo", "Aztec", "BMW" };
@@ -84,7 +99,15 @@ namespace Lab_2
             char c = 't';
             Console.WriteLine($"\nКiлькiсть входжень символу '{c }' = {A.CountChar(c)}");
 
-            Console.WriteLine($"\nКiлькiсть входжень символу '{2}' = {B.CountMatch(2)}"); 
+            Console.WriteLine($"\nКiлькiсть входжень символу '{2}' = {B.CountMatch(2)}");
+
+            Console.WriteLine($"\nКiлькiсть входжень символу Red = {C.CountMatch("Red")}");
+
+            Console.WriteLine("Масив з унiкальних елементiв\n");
+            foreach (var i in B.DelSame())
+            {
+                Console.WriteLine(i);
+            }
         }
     }
 }
