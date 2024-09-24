@@ -33,6 +33,19 @@ namespace Lab_2
             return counter;
         }
     }
+    //public static class ArrayExtensions<T> where T : struct
+    //{
+    //    public static int CountMatch(this T[] A, T item)
+    //    {
+    //        int counter = 0;
+    //            for (int i = 0; i < A.Length; i++)
+    //            {
+    //                if (A[i] == item)
+    //                    counter++;
+    //            }
+    //        return counter;
+    //    }
+    //}
     internal class Program
     {
       
@@ -69,7 +82,8 @@ namespace Lab_2
             }
 
             char c = 't';
-            Console.WriteLine($"\nКількість входжень символу {c } = {A.CountChar(c)}");
+            Console.WriteLine($"\nКiлькiсть входжень символу '{c }' = {A.CountChar(c)}");
+            
         }
     }
 }
