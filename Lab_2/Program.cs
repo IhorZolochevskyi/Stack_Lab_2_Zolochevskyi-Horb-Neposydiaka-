@@ -1,11 +1,46 @@
 ﻿using ClassLib;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Lab_2
 {
+    public static class StringArrayExtension
+    {
+        public static void ReverseA(this string[] A)
+        {
+            for (int i = 0, j = A.Length - 1; i < j; i++, j--)
+            {
+                string t;
+                t = A[i];
+                A[i] = A[j];
+                A[j] = t;
+            }
+        }
+        public static int CountChar(this string[] A, char c)
+        {
+            int counter = 0;
+            for (int j = 0; j < A.Length; j++)
+            {
+                for (int i = 0; i < A[j].Length; i++)
+                {
+                    if (A[j][i] == c)
+                        counter++;
+                }
+            }
+            return counter;
+        }
+    }
     internal class Program
-    {       
+    {
+      
         static void Main(string[] args)
         {
+            //Console.InputEncoding = Encoding.GetEncoding(1251);
+            //Console.OutputEncoding = Encoding.GetEncoding(1251);
+
             Car car = new Car(123, "жовтий", "audi", 5); 
 
             String[] A= { "Falluot 3", "Daxter 2", "System Shok 2", "Morrowind", "Pes 2013" };
@@ -25,16 +60,16 @@ namespace Lab_2
                 Console.WriteLine(i);
             }
 
-            for (int i = 0; i < A.Length; i++)
-            {
-                Console.WriteLine(A[i].Reverse());
-            }
+            A.ReverseA();
 
             Console.WriteLine("\nМасив A в зворотньому порядку: ");
             foreach (string i in A)
             {
                 Console.WriteLine(i);
             }
+
+            char c = 't';
+            Console.WriteLine($"\nКількість входжень символу {c } = {A.CountChar(c)}");
         }
     }
 }
