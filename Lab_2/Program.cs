@@ -1,10 +1,12 @@
-﻿namespace Lab_2
+﻿using ClassLib;
+
+namespace Lab_2
 {
     internal class Program
-    {
+    {       
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, Worldqweeqwe!");
+            Car car = new Car(123, "жовтий", "audi", 5); 
         }
     }
 }
