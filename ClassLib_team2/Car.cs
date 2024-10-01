@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ClassLib_team2
 {
@@ -38,6 +39,9 @@ namespace ClassLib_team2
             manufacturer = Manufacturer;
             passangerAmount = PassangerAmount;
         }
+        public override string ToString()
+        {
+            return $"Марка: {Manufacturer}\n Макс.шв.: {TopSpeed}\n Колiр: {Color}\n Кiлькiсть пасажирiв: {PassangerAmount}";
+        }
     }
 }
-

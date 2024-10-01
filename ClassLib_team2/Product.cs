@@ -1,4 +1,6 @@
-﻿namespace ClassLib_team2
+﻿using System.Drawing;
+
+namespace ClassLib_team2
 {
     public class Product
     {
@@ -21,12 +23,15 @@
             get { return amount; }
             set { amount = value; }
         }
-
-        public Product()
+        public Product(string Name, string Description, int Amount)
         {
             name = Name;
             description = Description;
             amount = Amount;
+        }
+        public override string ToString()
+        {
+            return $"Назва: {Name}\n Опис: {Description}\n Кiлькiсть: {Amount}";
         }
     }
 }
