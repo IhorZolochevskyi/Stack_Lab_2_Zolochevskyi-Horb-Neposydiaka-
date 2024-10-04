@@ -30,7 +30,7 @@ namespace ClassLib
         }
         public override string ToString()
         {
-            return $"Назва: {Name}\n Опис: {Description}\n Кiлькiсть: {Amount}";
+            return $"Name: {Name}\n Description: {Description}\n Amount: {Amount}";
         }
     }
 }

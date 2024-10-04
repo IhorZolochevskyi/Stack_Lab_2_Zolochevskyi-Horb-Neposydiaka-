@@ -69,6 +69,9 @@ namespace Lab_2
             //Console.InputEncoding = Encoding.GetEncoding(1251);
             //Console.OutputEncoding = Encoding.GetEncoding(1251);
 
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            var encoding = Encoding.GetEncoding(1251);
+
             Car[]car = new Car[5];
             car[0] = new Car(120, "Зелений", "Audi", 5);
             car[1] = new Car(157, "Червоний","Toyota",3);

@@ -113,7 +113,7 @@ namespace Test
         public void Product_ToString_ReturnsCorrectFormat()
         {
             var product = new Product("Product A", "Description A", 100);
-            string expected = "Назва: Product A\n Опис: Description A\n Кiлькiсть: 100";
+            string expected = "Name: Product A\n Description: Description A\n Amount: 100";
 
             string result = product.ToString();
 
