@@ -90,7 +90,7 @@ namespace Test
         public void Car_ToString_ReturnsCorrectFormat()
         {
             var car = new Car(220, "Black", "Toyota", 7);
-            string expected = "Марка: Toyota\n Макс.шв.: 220\n Колiр: Black\n Кiлькiсть пасажирiв: 7";
+            string expected = "Car Manufacturer: Toyota\n Max Speed: 220\n Color: Black\n Passengers: 7";
 
             string result = car.ToString();
 
@@ -113,7 +113,7 @@ namespace Test
         public void Product_ToString_ReturnsCorrectFormat()
         {
             var product = new Product("Product A", "Description A", 100);
-            string expected = "Назва: Product A\n Опис: Description A\n Кiлькiсть: 100";
+            string expected = "Name: Product A\n Description: Description A\n Amount: 100";
 
             string result = product.ToString();
 
